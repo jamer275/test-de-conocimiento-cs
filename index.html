@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>test ciencias sociales</title>
+</head>
+<body>
+
+    <div id="game-container">
+        <h1>Test de conocimiento Ciencias Sociales</h1>
+        <h2 id="question"></h2>
+        <div id="options">
+            <button class="option-button"></button>
+            <button class="option-button"></button>
+            <button class="option-button"></button>
+            <button class="option-button"></button>
+        </div>
+    </div>
+        <div>
+            <h3 id="score"></h3>
+             <h3 id="records-title">Records</h3>
+            <ul id="records-list"></ul>
+        </div>
+
+    <script>
+        const questions = [
+            {
+                question: "¿En donde se halla el extenso territorio Arabigo?",
+                options: ["Europa", "Continente Africano", "La Meca"],
+                correct: 1
+            },
+            {
+                question: "¿Qué reforma importante surgió tras la Revolución de 1952 en Bolivia?",
+                options: ["Reforma agraria", "Reforma educativa", "Nacionalización de minas"],
+                correct: 0
+            },
+            {
+                question: "¿Qué grupo indígena predominó en el Altiplano boliviano antes de la colonización?",
+                options: ["Guaraníes", "Aymaras", "Chiriguanos"],
+                correct: 1
+    },
+    {
+        question: "¿Qué líder indígena encabezó una rebelión contra la dominación española en 1781?",
+        options: ["Túpac Katari", "Bartolina Sisa", "Simón Bolívar"],
+        correct: 0
+    },
+    {
+        question: "¿Qué tratado dividió las tierras de Bolivia y Brasil después de la Guerra del Acre?",
+        options: ["Tratado de Sucre", "Tratado de Petrópolis", "Tratado de La Paz"],
+        correct: 1
+    },
+    {
+        question: "¿Cuál fue el principal recurso natural explotado en Bolivia durante el siglo XIX?",
+        options: ["Estaño", "Plata", "Gas natural"],
+        correct: 1
+    },
+    {
+        question: "¿Cuál fue el primer presidente indígena de Bolivia?",
+        options: ["Evo Morales", "Hernán Siles Suazo", "Jaime Paz Zamora"],
+        correct: 0
+    },
+    {
+        question: "¿Qué constitución fue la primera en reconocer los derechos de los pueblos indígenas en Bolivia?",
+        options: ["Constitución de 1938", "Constitución de 2009", "Constitución de 1967"],
+        correct: 1
+    },
+    {
+        question: "¿Qué presidente boliviano nacionalizó los hidrocarburos en 2006?",
+        options: ["Carlos Mesa", "Evo Morales", "Gonzalo Sánchez de Lozada"],
+        correct: 1
+    },
+    {
+        question: "¿Qué líder boliviano es conocido por la frase 'Volveré y seré millones'?",
+        options: ["Túpac Katari", "Simón Bolívar", "Evo Morales"],
+        correct: 0
+    },
+    {
+        question: "¿Qué batalla fue decisiva para la independencia de Bolivia?",
+        options: ["Batalla de Ayacucho", "Batalla de Sucre", "Batalla de Tarija"],
+        correct: 0
+    },
+    {
+        question: "¿Qué acuerdo puso fin a la guerra entre Bolivia y Paraguay?",
+        options: ["Tratado de Paz de Buenos Aires", "Tratado de Tarija", "Acuerdo de Paz de Asunción"],
+        correct: 0
+    },
+    {
+        question: "¿Qué presidente boliviano fue conocido por su lucha contra el narcotráfico en los años 90?",
+        options: ["Jaime Paz Zamora", "Gonzalo Sánchez de Lozada", "Hugo Banzer"],
+        correct: 0
+    },
+    {
+        question: "¿Qué recurso natural fue una de las principales causas de la Guerra del Chaco?",
+        options: ["Estaño", "Petróleo", "Plata"],
+        correct: 1
+    },
+    {
+        question: "¿Qué ciudad fue declarada capital de Bolivia tras su independencia?",
+        options: ["Sucre", "La Paz", "Cochabamba"],
+        correct: 0
+    },
+    {
+        question: "¿Qué personaje fue presidente de Bolivia en dos periodos distintos, liderando importantes reformas económicas?",
+        options: ["Víctor Paz Estenssoro", "Evo Morales", "Hernán Siles Suazo"],
+        correct: 0
+    },
+    {
+        question: "¿Qué evento marcó el inicio del periodo de dictaduras militares en Bolivia?",
+        options: ["Golpe de Estado de 1964", "Revolución de 1952", "Nacionalización de minas"],
+        correct: 0
+    },
+    {
+        question: "¿Qué presidente boliviano lideró la nacionalización del estaño en 1952?",
+        options: ["Víctor Paz Estenssoro", "Hugo Banzer", "Andrés de Santa Cruz"],
+        correct: 0
+    },
+    {
+        question: "¿Qué movimiento sindical cobró gran importancia tras la Revolución Nacional de 1952?",
+        options: ["Confederación Obrera Boliviana (COB)", "Federación Campesina Boliviana", "Unión de Trabajadores Mineros"],
+        correct: 0
+    },
+    {
+        question: "¿Qué ciudad fue el centro de la rebelión indígena encabezada por Túpac Katari en 1781?",
+        options: ["La Paz", "Sucre", "Cochabamba"],
+        correct: 0
+    },
+    {
+        question: "¿Cuál fue la primera mina de plata explotada por los españoles en Bolivia?",
+        options: ["Potosí", "Oruro", "Sucre"],
+        correct: 0
+    },
+    {
+        question: "¿En qué año Bolivia proclamó su independencia?",
+        options: ["1825", "1809", "1830"],
+        correct: 0
+    },
+    {
+        question: "¿Quién es considerado el libertador de Bolivia?",
+        options: ["Antonio José de Sucre", "Simón Bolívar", "Andrés de Santa Cruz"],
+        correct: 1
+    },
+    {
+        question: "¿Cuál fue la primera ciudad que se declaró en rebelión contra el dominio español en Bolivia?",
+        options: ["Sucre", "Cochabamba", "La Paz"],
+        correct: 0
+    },
+    {
+        question: "¿Qué país invadió Bolivia durante la Guerra del Pacífico?",
+        options: ["Perú", "Argentina", "Chile"],
+        correct: 2
+    },
+    {
+        question: "¿En qué año se perdió el Litoral boliviano?",
+        options: ["1879", "1835", "1884"],
+        correct: 0
+    },
+    {
+        question: "¿Qué presidente boliviano participó en la Guerra del Chaco?",
+        options: ["Germán Busch", "Mariano Melgarejo", "Hugo Banzer"],
+        correct: 0
+    },
+    {
+        question: "¿Contra qué país luchó Bolivia en la Guerra del Chaco?",
+        options: ["Chile", "Perú", "Paraguay"],
+        correct: 2
+    },
+    {
+        question: "¿En qué fecha se firmó el Tratado de Paz entre Bolivia y Chile tras la Guerra del Pacífico?",
+        options: ["1904", "1880", "1925"],
+        correct: 0
+    },
+    {
+        question: "¿Qué sistema de gobierno instauró Bolivia tras la Revolución de 1952?",
+        options: ["Democracia", "Dictadura militar", "Socialismo"],
+        correct: 0
+    },
+    {
+        question: "¿Quién fue el líder de la Revolución Nacional de 1952 en Bolivia?",
+        options: ["Víctor Paz Estenssoro", "Hugo Banzer", "Evo Morales"],
+        correct: 0
+    }
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+
+        const questionElement = document.getElementById('question');
+        const optionButtons = document.querySelectorAll('.option-button');
+        const scoreElement = document.getElementById('score');
+        const recordsList = document.getElementById('records-list');
+
+        function startGame() {
+            currentQuestionIndex = 0;
+            score = 0;
+            scoreElement.textContent = "";
+            showQuestion();
+        }
+
+        function showQuestion() {
+            const currentQuestion = questions[currentQuestionIndex];
+            questionElement.textContent = currentQuestion.question;
+            optionButtons.forEach((button, index) => {
+                button.textContent = currentQuestion.options[index];
+                button.style.display = index < currentQuestion.options.length ? 'inline-block' : 'none';
+                button.onclick = () => checkAnswer(index);
+            });
+        }
+
+        function checkAnswer(selectedOption) {
+            const correctOption = questions[currentQuestionIndex].correct;
+            if (selectedOption === correctOption) {
+                score++;
+            }
+
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                showQuestion();
+            } else {
+                showEndGame();
+            }
+        }
+
+        function showEndGame() {
+            const playerName = prompt("¡Has terminado el juego! Tu puntaje es: " + score + ". Ingresa tu nombre para registrar tu puntaje:");
+            if (playerName) {
+                saveRecord(playerName, score);
+            }
+            displayRecords();
+            startGame();
+        }
+
+        function saveRecord(name, score) {
+            const records = JSON.parse(localStorage.getItem('triviaRecords')) || [];
+            records.push({ name, score });
+            localStorage.setItem('triviaRecords', JSON.stringify(records));
+        }
+
+        function displayRecords() {
+            const records = JSON.parse(localStorage.getItem('triviaRecords')) || [];
+            recordsList.innerHTML = '';
+            records.forEach(record => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `${record.name}: ${record.score}`;
+                recordsList.appendChild(listItem);
+            });
+        }
+
+        // Inicia el juego y muestra los récords guardados
+        startGame();
+        displayRecords();
+    </script>
+</body>
+</html>
